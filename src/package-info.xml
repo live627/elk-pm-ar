@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.elkarte.net/site/package-info">
+<package-info xmlns="http://www.elkarte.net/site/package-info" xmlns:elk="http://www.elkarte.net/">
+    <id>live627:pm_ar</id>
+    <name>PM Auto Responder</name>
+    <type>modification</type>
+    <version>1.0-beta.1</version>
+    <type>modification</type>
+
+    <install for="1.0 - 1.0.99">
+        <readme parsebbc="true">install.txt</readme>
+        <database>install.php</database>
+        <hook hook="integrate_personal_message" file="SUBSDIR/PMAutoResponder.integrate.php" function="pm_ar_personal_message" />
+        <hook hook="integrate_profile_areas" file="SUBSDIR/PMAutoResponder.integrate.php" function="pm_ar_profile_areas" />
+        <hook hook="integrate_profile_save" file="SUBSDIR/PMAutoResponder.integrate.php" function="pm_ar_profile_save" />
+        <hook hook="integrate_load_permissions" file="SUBSDIR/PMAutoResponder.integrate.php" function="pm_ar_load_permissions" />
+        <require-file name="PMAutoResponder.subs.php" destination="SUBSDIR" />
+        <require-file name="PMAutoResponder.integrate.php" destination="SUBSDIR" />
+        <require-file name="PMAutoResponder.controller.php" destination="CONTROLLERDIR" />
+        <require-file name="PMAutoResponder.template.php" destination="THEMEDIR" />
+        <require-file name="PMAutoResponder.english.php" destination="LANGUAGEDIR/english" />
+    </install>
+
+    <uninstall for="1.0 - 1.0.99">
+        <readme parsebbc="true">uninstall.txt</readme>
+        <hook reverse="true" hook="integrate_personal_message" file="SUBSDIR/PMAutoResponder.integrate.php" function="pm_ar_personal_message" />
+        <hook reverse="true" hook="integrate_profile_areas" file="SUBSDIR/PMAutoResponder.integrate.php" function="pm_ar_profile_areas" />
+        <hook reverse="true" hook="integrate_profile_save" file="SUBSDIR/PMAutoResponder.integrate.php" function="pm_ar_profile_save" />
+        <hook reverse="true" hook="integrate_load_permissions" file="SUBSDIR/PMAutoResponder.integrate.php" function="pm_ar_load_permissions" />
+        <remove-file name="SUBSDIR/PMAutoResponder.subs.php" />
+        <remove-file name="SUBSDIR/PMAutoResponder.integrate.php" />
+        <remove-file name="CONTROLLERDIR/PMAutoResponder.controller.php" />
+        <remove-file name="THEMEDIR/PMAutoResponder.template.php" />
+        <remove-file name="LANGUAGEDIR/english/PMAutoResponder.english.php" />
+    </uninstall>
+
+</package-info>
